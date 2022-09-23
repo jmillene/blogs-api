@@ -27,11 +27,11 @@ module.exports = {
       },
       published: {
         allowNull: false,
-        type: Sequelize.DATETIME,
+        type: Sequelize.DATE,
       },
       updated: {
         allowNull: false,
-        type: Sequelize.DATETIME,
+        type: Sequelize.DATE,
       },
     });
   },
