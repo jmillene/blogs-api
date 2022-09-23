@@ -4,34 +4,34 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable("blog_posts", {
       id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
         type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false,
       },
       title: {
-        allowNull: false,
         type: Sequelize.STRING,
+        allowNull: false,
       },
       content: {
-        allowNull: false,
         type: Sequelize.STRING,
+        allowNull: false,
       },
       user_id: {
-        allowNull: false,
         type: Sequelize.INTEGER,
-        references:{
-          model: 'users',
-          key: 'id',
-        }
+        allowNull: false,
+        references: {
+          model: "users",
+          key: "id",
+        },
       },
       published: {
-        allowNull: false,
         type: Sequelize.DATE,
+        allowNull: false,
       },
       updated: {
-        allowNull: false,
         type: Sequelize.DATE,
+        allowNull: false,
       },
     });
   },
