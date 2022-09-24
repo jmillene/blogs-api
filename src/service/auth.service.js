@@ -9,7 +9,7 @@ const user = await User.findOne({
   where: { email, password },
 });
 const token = generateToken(user);
-return { type: null, message: token };
+return token;
 };
 module.exports = {
   authenticate,

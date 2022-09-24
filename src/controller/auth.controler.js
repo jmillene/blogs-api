@@ -3,7 +3,6 @@ const authService = require('../service/auth.service');
 const auth = async (req, res) => {
   try {
     const token = await authService.authenticate(req.body);
-    console.log(token);
     if (token) {
       return res.status(200).json({ token });
     }
