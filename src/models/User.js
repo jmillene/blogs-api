@@ -22,9 +22,13 @@ const userModelSchema = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    underscored: true,
-    timestamps:false
-  });
+    },
+    {
+      tableName: 'users',
+      underscored: true,
+      timestamps: false,
+    });
+  
   return User;
 };
 module.exports = userModelSchema;

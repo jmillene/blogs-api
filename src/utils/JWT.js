@@ -5,9 +5,7 @@ const secret = process.env.JWT_SECRET;
 
 const generateToken = ({ id, displayName, image }) => {
   const payload = {
-    id,
-    displayName,
-    image,
+    id, displayName, image,
   };
   const jwtConfig = {
     expiresIn: '40m',
