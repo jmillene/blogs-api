@@ -2,13 +2,12 @@ const { User } = require('../models');
 const { generateToken } = require('../utils/JWT');
 
 const authenticate = async ({ email, password }) => {
-
-const user = await User.findOne({
-  attributes: ['id', 'email', 'displayName'],
-  where: { email, password },
-});
-const token = generateToken(user);
-return token;
+  const user = await User.findOne({
+    attributes: ['id', 'email', 'displayName'],
+    where: { email, password },
+  });
+  const token = generateToken(user);
+  return token;
 };
 
 module.exports = {
