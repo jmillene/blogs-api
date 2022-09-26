@@ -1,7 +1,9 @@
 const express = require('express');
-const authControler = require('../controller/auth.controler');
-const validaLogin = require('../middleware/validacaoLogin');
+const validaDisplayname = require('../middleware/validacaoUser');
+const adicionaUser = require('../controller/user.controller');
 
 const router = express.Router();
-router.post('/', validaLogin.validaLogin, authControler.auth);
-module.exports = router;
+ router.post('/', validaDisplayname.validaDisplayname, 
+ validaDisplayname.validaEmail,validaDisplayname.validaPassword, adicionaUser.user);
+
+ module.exports = router;
