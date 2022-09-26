@@ -12,6 +12,11 @@ const user = async (req, res) => {
     res.status(500).json('deu péssimo');
   }
 };
+const getAllUser = async (req, res) => {
+  const getUser = await authService.getAllUser();
+  return res.status(200).json(getUser);
+};
 module.exports = {
   user,
+  getAllUser,
 };

@@ -14,7 +14,16 @@ const adicionaUser = async ({ displayName, email, password, image }) => {
  const token = generateToken(userCreate.dataValues);
 return { token };
 };
+const getAllUser = async () => {
+  const users = await User.findAll(
+    { 
+      attributes: ['id', 'displayName', 'email', 'image'],
+  },
+);
+  return users;
+};
 
 module.exports = {
   adicionaUser,
+  getAllUser,
 };
