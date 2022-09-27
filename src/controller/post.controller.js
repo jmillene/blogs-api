@@ -12,7 +12,16 @@ const blog = async (req, res) => {
     });
   }
 };
-
+const blosPost = async (req, res) => {
+try {
+  const blogs = await servicePost.getPost();
+  return res.status(200).json(blogs);
+} catch (error) {
+  console.log(error);
+  return res.status(500).json('deu ruim');
+}
+};
 module.exports = {
   blog,
+  blosPost,
 };
