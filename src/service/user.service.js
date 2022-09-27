@@ -22,8 +22,20 @@ const getAllUser = async () => {
 );
   return users;
 };
+const findPkUser = async (id) => {
+  const findUser = await User.findByPk(id, {
+    attributes: ['id', 'displayName', 'email', 'image'],
+});
+if (findUser === null) {
+const error = new Error('User does not exist');
+error.type = 404;
+throw error;
+}
+return { type: 200, message: findUser };
+};
 
 module.exports = {
   adicionaUser,
   getAllUser,
+  findPkUser,
 };

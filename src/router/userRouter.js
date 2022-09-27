@@ -14,4 +14,7 @@ router.post(
 router.get('/', validaToken.validaToken, 
 validaToken.validaTokenExpirado, 
 adicionaUser.getAllUser);
+
+router.get('/:id', validaToken.validaToken,
+validaToken.validaTokenExpirado, adicionaUser.findUserPk);
 module.exports = router;
