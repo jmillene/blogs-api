@@ -8,6 +8,7 @@ const user = async (req, res) => {
         .status(adicionaUser.type)
         .json({ message: adicionaUser.message });
     }
+
     return res.status(201).json(adicionaUser);
   } catch (error) {
     console.log(error);
@@ -22,7 +23,8 @@ const findUserPk = async (req, res) => {
   try {
     const { id } = req.params;
     const usersPk = await authService.findPkUser(id);
-    return res.status(usersPk.type).json(usersPk.message);
+    console.log(req.user);
+  return res.status(usersPk.type).json(usersPk.message);
   } catch (error) {
     console.log(error);
     return res.status(error.type).json({

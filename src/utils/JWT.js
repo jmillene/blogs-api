@@ -8,7 +8,7 @@ const generateToken = (id, displayName, image) => {
     id, displayName, image,
   };
   const jwtConfig = {
-    expiresIn: '40m',
+    expiresIn: '7d',
     algorithm: 'HS256',
   };
   const token = jwt.sign(payload, secret, jwtConfig);

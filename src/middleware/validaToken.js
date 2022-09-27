@@ -14,7 +14,8 @@ const validaTokenExpirado = async (req, res, next) => {
   const { authorization } = req.headers;
   try {
     const SECRET_KEY = process.env.JWT_SECRET;
-     jwt.verify(authorization, SECRET_KEY);
+  const receberJwt = jwt.verify(authorization, SECRET_KEY);
+  req.user = receberJwt.id;
       next();
   } catch (error) {
     console.log(error);

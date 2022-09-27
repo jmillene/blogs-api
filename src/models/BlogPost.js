@@ -30,7 +30,8 @@ const blogPostSchema = (sequelize, DataTypes) => {
     },
     {
       tableName: "blog_posts",
-      timestamps: false,
+      createdAt: "published",
+      updatedAt: "updated",
       underscored: true,
     }
   );
