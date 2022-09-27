@@ -10,7 +10,9 @@ const createCategories = async (list) => {
   const categories = categoriesDb
     .filter((e) => e)
     .map((category) => category.dataValues);
-  if (categories.length === 0) { return { type: 400, message: '"categoryIds" not found' }; }
+  if (categories.length === 0) {
+    return { type: 400, message: '"categoryIds" not found' };
+  }
   return categories.map(({ id }) => id);
 };
 
@@ -30,18 +32,42 @@ const createBlog = async ({ title, content, categoryIds }, { id }) => {
 };
 
 const getPost = async () => {
-const blogPost = BlogPost.findAll({
-  include: [{
-    model: User, as: 'user', attributes: { exclude: ['password'] },
-},
-{ 
-    model: Category, as: 'categories', through: { attributes: [] },
-}],
+  const blogPost = BlogPost.findAll({
+    include: [
+      {
+        model: User,
+        as: 'user',
+        attributes: { exclude: ['password'] },
+      },
+      {
+        model: Category,
+        as: 'categories',
+        through: { attributes: [] },
+      },
+    ],
+  });
+  return blogPost;
+};
+const blogPk = async (id) => {
+const blosPk = await BlogPost.findByPk(id, {
+  include: [
+    {
+      model: User,
+      as: 'user',
+      attributes: { exclude: ['password'] },
+    },
+    {
+      model: Category,
+      as: 'categories',
+      through: { attributes: [] },
+    },
+  ],
 });
-console.log(blogPost);
-return blogPost;
+if (blosPk === null) return { type: 404, message: 'Post does not exist' };
+return blosPk;
 };
 module.exports = {
   createBlog,
   getPost,
+  blogPk,
 };

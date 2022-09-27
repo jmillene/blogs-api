@@ -7,4 +7,6 @@ router.post('/', validaToken.validaToken, validaToken.validaTokenExpirado,
  postController.blog);
  router.get('/', validaToken.validaToken, validaToken.validaTokenExpirado,
  postController.blosPost);
+ router.get('/:id', validaToken.validaToken, validaToken.validaTokenExpirado,
+ postController.blogPk);
 module.exports = router;

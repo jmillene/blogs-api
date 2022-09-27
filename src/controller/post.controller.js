@@ -21,7 +21,19 @@ try {
   return res.status(500).json('deu ruim');
 }
 };
+const blogPk = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const blogsPk = await servicePost.blogPk(id);
+    if (blogsPk.type) return res.status(blogsPk.type).json({ message: blogsPk.message });
+    return res.status(200).json(blogsPk);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json('o que deu?');
+  }
+};
 module.exports = {
   blog,
   blosPost,
+  blogPk,
 };
