@@ -4,7 +4,7 @@
 <details>
   <summary><strong>👨‍💻 O que foi desenvolvido?</strong></summary>
 
-  Neste projeto foi desenvolvido uma API e um banco de dados para a produção de conteúdo para um blog! 
+  Neste projeto foi desenvolvido uma API e um banco de dados para a produção de conteúdo para um blog! <br/>
   Uma aplicação em `Node.js` usando o pacote `sequelize` para fazer um `CRUD` de posts.
 
 <br />
